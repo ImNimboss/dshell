@@ -209,7 +209,7 @@ Subcommands:
             def check(reaction, user):
                 return str(reaction.emoji) in ['✅', '❌'] and user == ctx.author and reaction.message.id == message.id and reaction.message.channel.id == ctx.channel.id
             try:
-                reaction = await self.bot.wait_for('reaction_add', check = check, timeout = 10)
+                reaction, user = await self.bot.wait_for('reaction_add', check = check, timeout = 10)
                 if str(reaction.emoji) == '✅':
                     await ctx.send(file = file)
                 else:
