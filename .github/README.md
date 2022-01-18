@@ -56,7 +56,7 @@ Discord shell or dshell for short is a Python package that combines with [discor
 ## Installation and upgrades
 
 ```
-pip install discordshell
+pip install dshell
 ```
 for the stable version (recommended).
 

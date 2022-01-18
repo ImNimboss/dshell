@@ -11,7 +11,7 @@ for line in lines:
         version = line[20:-2]
 
 setup(
-    name = 'discordshell',
+    name = 'dshell',
     version = version,
     description = 'DShell is a package that combines with discord.py and Jishaku to turn a Discord channel into a shell on which bash commands can be run.',
     long_description = long_description,
