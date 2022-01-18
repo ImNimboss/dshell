@@ -347,8 +347,8 @@ class DShell(commands.Cog):
     @commands.Cog.listener(name = 'on_ready')
     async def initialize_bot_owners(self):
         if not self._on_ready_flag and not self._owners:
-            self.dshell_config['shell_whitelisted_users'] = [(await self.bot.application_info()).owner.id]
-            self._owners = self.dshell_config['shell_whitelisted_users']
+            self.bot.dshell_config['shell_whitelisted_users'] = [(await self.bot.application_info()).owner.id]
+            self._owners = self.bot.dshell_config['shell_whitelisted_users']
             self._on_ready_flag = True
 
 def setup(bot):
