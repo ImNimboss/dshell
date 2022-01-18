@@ -241,16 +241,16 @@ Subcommands:
         """
         if user.id in self.bot.dshell_config['shell_whitelisted_users']:
             return await ctx.send('This person is already whitelisted.')
-        message = await ctx.send(f'{ctx.author.mention}, are you sure you want to whitelist this person? This will give them full access to the computer/system this bot is running on. Press :+1: to confirm.', allowed_mentions = discord.AllowedMentions(users = True))
+        message = await ctx.send(f'{ctx.author.mention}, are you sure you want to whitelist this person? This will give them full access to the computer/system this bot is running on. Press :+1: to confirm, you have 10 seconds.', allowed_mentions = discord.AllowedMentions(users = True))
         await message.add_reaction('👍')
         def check(reaction, user_):
             return str(reaction.emoji == '👍') and user_ == ctx.author and reaction.message.id == message.id and reaction.message.channel.id == ctx.channel.id
         try:
             await self.bot.wait_for('reaction_add', check = check, timeout = 10)
-            await ctx.send('Aborted.')
-        except TimeoutError:
             self.bot.dshell_config['shell_whitelisted_users'].append(user.id)
             await ctx.send(f'Whitelisted {user.mention}.', allowed_mentions = discord.AllowedMentions(users = True))
+        except TimeoutError:
+            await ctx.send('Aborted.')
 
     @dshell.command(name = 'shellunwhitelist', aliases = ['shuw'])
     @commands.is_owner()
