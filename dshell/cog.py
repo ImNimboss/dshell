@@ -216,6 +216,8 @@ Subcommands:
                     await ctx.send('Aborted.')
             except TimeoutError:
                 await ctx.send('Aborted.')
+        else:
+            await ctx.message.add_reaction('👍')
 
     @dshell.command(name = 'shellwhitelist', aliases = ['shw'])
     @commands.is_owner()
