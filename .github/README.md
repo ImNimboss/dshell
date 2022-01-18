@@ -1,15 +1,11 @@
-<p align="center"><img src="assets/readme/dshell-logo.png" alt="DShell Logo"></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ImNimboss/dshell/main/.github/assets/readme/dshell-logo.png" alt="DShell Logo"></p>
 
 # DShell
 
-```
-DISCLAIMER: DShell is not on PyPI yet since it is still undergoing its testing phase. To help out, install it from GitHub.
-```
-
-<a href="https://pypi.org/project/dshell" target="_blank" rel="noopener noreferrer">
-    <img src="https://img.shields.io/pypi/v/dshell.svg?color=9cf&logo=pypi" alt="PyPI DShell version number">
-    <img src="https://img.shields.io/pypi/dm/dshell?color=9cf&logo=pypi" alt="PyPI downloads per month">
-    <img src="https://img.shields.io/pypi/pyversions/dshell.svg?color=9cf&logo=pypi" alt="PyPI supported Python versions">
+<a href="https://pypi.org/project/discordshell" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/pypi/v/discordshell.svg?color=9cf&logo=pypi" alt="PyPI DShell version number">
+    <img src="https://img.shields.io/pypi/dm/discordshell?color=9cf&logo=pypi" alt="PyPI downloads per month">
+    <img src="https://img.shields.io/pypi/pyversions/discordshell.svg?color=9cf&logo=pypi" alt="PyPI supported Python versions">
 </a>
 <a href="https://github.com/ImNimboss/dshell/issues" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/github/issues/ImNimboss/dshell?color=9cf&logo=github" alt="Number of open GitHub issues">
@@ -28,7 +24,7 @@ Discord shell or dshell for short is a Python package that combines with [discor
 ## Typical usage
 
 <!--Ratio of height:width of image should be 87:84-->
-<p align="center"><img src="assets/readme/dshell-example.gif" height="435" width="420"></p>
+<p align="center"><img src="https://github.com/ImNimboss/dshell/blob/main/.github/assets/readme/dshell-example.gif?raw=true" height="435" width="420"></p>
 
 ## When would I use this?
 
@@ -56,12 +52,12 @@ Discord shell or dshell for short is a Python package that combines with [discor
 ## Installation and upgrades
 
 ```
-pip install dshell
+pip install discordshell
 ```
 for the stable version (recommended).
 
 ```
-pip install -U dshell
+pip install -U discordshell
 ```
 to update your stable version.
 
