@@ -1,4 +1,4 @@
-from .cog import Shell
+from dshell.cog import DShell
 
 __author__: str = 'ImNimboss'
 __license__: str = 'MIT'
