@@ -2,6 +2,10 @@
 
 # DShell
 
+```
+DISCLAIMER: DShell is not on PyPI yet since it is still undergoing its testing phase. To help out, install it from GitHub.
+```
+
 <a href="https://pypi.org/project/dshell" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/pypi/v/dshell.svg?color=9cf&logo=pypi" alt="PyPI DShell version number">
     <img src="https://img.shields.io/pypi/dm/dshell?color=9cf&logo=pypi" alt="PyPI downloads per month">
