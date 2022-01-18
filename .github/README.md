@@ -73,7 +73,7 @@ to upgrade your version that you got from GitHub.
 
 ## How to use
 
-Check [Documentation/How to use.md](https://github.com/ImNimboss/dshell/blob/main/Documentation/How%20To%20Use.md)
+Check [Documentation/Basics.md](https://github.com/ImNimboss/dshell/blob/main/Documentation/Basics.md)
 
 ## Examples
 
