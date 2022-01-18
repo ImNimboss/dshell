@@ -197,7 +197,7 @@ Subcommands:
         Shows your DShell cog's configuration dict.
         """
         file = discord.File(
-            StringIO(dumps(self.bot.dshell_config)),
+            StringIO(dumps(self.bot.dshell_config, indent = 4)),
             'configdict.json'
         )
         try:
