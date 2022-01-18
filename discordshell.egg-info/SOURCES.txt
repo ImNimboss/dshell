@@ -1,8 +1,0 @@
-setup.py
-discordshell.egg-info/PKG-INFO
-discordshell.egg-info/SOURCES.txt
-discordshell.egg-info/dependency_links.txt
-discordshell.egg-info/top_level.txt
-dshell/__init__.py
-dshell/cog.py
-dshell/jskshell.py
