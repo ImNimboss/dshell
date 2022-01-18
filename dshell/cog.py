@@ -106,12 +106,12 @@ Subcommands:
             if self.bot.dshell_config['show_cd_command_output']:
                 return await ctx.send('CD command output is already enabled.')
             self.bot.dshell_config['show_cd_command_output'] = True
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         elif argument.lower() in self._bool_flags_false:
             if not self.bot.dshell_config['show_cd_command_output']:
                 return await ctx.send('CD command output is already disabled.')
             self.bot.dshell_config['show_cd_command_output'] = False
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         else:
             await ctx.send('Invalid argument. Your argument must be one of `enable`, `true`, `yes`, `y`, `disable`, `false`, `no` or `n`.')
 
@@ -125,12 +125,12 @@ Subcommands:
             if self.bot.dshell_config['give_clear_command_confirmation_warning']:
                 return await ctx.send('The clear command confirmation warning is already enabled.')
             self.bot.dshell_config['give_clear_command_confirmation_warning'] = True
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         elif argument.lower() in self._bool_flags_false:
             if not self.bot.dshell_config['give_clear_command_confirmation_warning']:
                 return await ctx.send('The clear command confirmation warning is already disabled.')
             self.bot.dshell_config['give_clear_command_confirmation_warning'] = False
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         else:
             await ctx.send('Invalid argument. Your argument must be one of `enable`, `true`, `yes`, `y`, `disable`, `false`, `no` or `n`.')
 
@@ -144,12 +144,12 @@ Subcommands:
             if self.bot.dshell_config['shell_in_dms']:
                 return await ctx.send('Shell is already enabled in DMs.')
             self.bot.dshell_config['shell_in_dms'] = True
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         elif argument.lower() in self._bool_flags_false:
             if not self.bot.dshell_config['shell_in_dms']:
                 return await ctx.send('Shell is already disabled in DMs.')
             self.bot.dshell_config['shell_in_dms'] = False
-            await ctx.add_reaction('👍')
+            await ctx.message.add_reaction('👍')
         else:
             await ctx.send('Invalid argument. Your argument must be one of `enable`, `true`, `yes`, `y`, `disable`, `false`, `no` or `n`.')
 
@@ -162,7 +162,7 @@ Subcommands:
         if channel.id in self.bot.dshell_config['shell_channels']:
             return await ctx.send('This channel is already a shell channel.')
         self.bot.dshell_config['shell_channels'].append(channel.id)
-        await ctx.add_reaction('👍')
+        await ctx.message.add_reaction('👍')
 
     @dshell.command(name = 'removeshellchannel', aliases = ['removechannel', 'rch'])
     @commands.is_owner()
@@ -173,7 +173,7 @@ Subcommands:
         if not channel.id in self.bot.dshell_config['shell_channels']:
             return await ctx.send('This channel is not a shell channel.')
         self.bot.dshell_config['shell_channels'].remove(channel.id)
-        await ctx.add_reaction('👍')
+        await ctx.message.add_reaction('👍')
 
     @dshell.command(name = 'shellchannels', aliases = ['sc'])
     @commands.is_owner()
