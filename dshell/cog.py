@@ -47,6 +47,8 @@ class DShell(commands.Cog):
             self.bot.dshell_config['shell_whitelisted_users'] = [bot.owner_id]
         elif bot.owner_ids:
             self.bot.dshell_config['shell_whitelisted_users'] = bot.owner_ids
+        else:
+            self.bot.dshell_config['shell_whitelisted_users'] = []
         self._owners: list = self.bot.dshell_config['shell_whitelisted_users']
         self._on_ready_flag: bool = False
         self._og_working_directory: str = getcwd()
