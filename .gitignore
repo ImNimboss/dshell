@@ -1,3 +1,6 @@
 dshell/__pycache__
 .DS_Store
 private*
+build
+dist
+dshell.egg-info
