@@ -45,11 +45,13 @@ class DShell(commands.Cog):
         }
         if bot.owner_id:
             self.bot.dshell_config['shell_whitelisted_users'] = [bot.owner_id]
+            self._owners = [bot.owner_id]
         elif bot.owner_ids:
             self.bot.dshell_config['shell_whitelisted_users'] = bot.owner_ids
+            self._owners = bot.owner_ids
         else:
             self.bot.dshell_config['shell_whitelisted_users'] = []
-        self._owners: list = self.bot.dshell_config['shell_whitelisted_users']
+            self._owners = []
         self._on_ready_flag: bool = False
         self._og_working_directory: str = getcwd()
         self._cwd: str = self._og_working_directory # this changes with cd commands, of course
@@ -365,8 +367,9 @@ Subcommands:
     @commands.Cog.listener(name = 'on_ready')
     async def initialize_bot_owners(self):
         if not self._on_ready_flag and not self._owners:
-            self.bot.dshell_config['shell_whitelisted_users'] = [(await self.bot.application_info()).owner.id]
-            self._owners = self.bot.dshell_config['shell_whitelisted_users']
+            owner = (await self.bot.application_info()).owner.id
+            self.bot.dshell_config['shell_whitelisted_users'] = [owner]
+            self._owners = [owner]
             self._on_ready_flag = True
 
 def setup(bot):
