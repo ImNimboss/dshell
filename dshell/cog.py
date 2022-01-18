@@ -201,7 +201,12 @@ Subcommands:
             'configdict.json'
         )
         try:
-            await ctx.author.send(file = file)
+            await ctx.author.send(
+                file = discord.File(
+                    StringIO(dumps(self.bot.dshell_config, indent = 4)),
+                    'configdict.json'
+                )
+            )
         except: # bare except, i know, no one get angry but i need to suppress any error
             message = await ctx.send('I couldn\'t DM you the file. Would you like me to send it in this channel?')
             await message.add_reaction('✅')
@@ -211,7 +216,12 @@ Subcommands:
             try:
                 reaction, user = await self.bot.wait_for('reaction_add', check = check, timeout = 10)
                 if str(reaction.emoji) == '✅':
-                    await ctx.send(file = file)
+                    await ctx.send(
+                        file = discord.File(
+                            StringIO(dumps(self.bot.dshell_config, indent = 4)),
+                            'configdict.json'
+                        )
+                    )
                 else:
                     await ctx.send('Aborted.')
             except TimeoutError:
