@@ -181,9 +181,9 @@ Subcommands:
         """
         Shows a list of all the channels that the shell can be used in.
         """
-        if len(self.bot.config['dshell_channels']) == 0:
+        if len(self.bot.dshell_config['dshell_channels']) == 0:
             return await ctx.send('There are no shell channels, add one using the `dshell/dsh addshellchannel` subcommand.')
-        channels = [f'<#{id_}>' for id_ in self.bot.config['dshell_channels']]
+        channels = [f'<#{id_}>' for id_ in self.bot.dshell_config['dshell_channels']]
         chunks = []
         for i in range(0, len(channels), 25):
             chunks.append(channels[i : i + 25])
