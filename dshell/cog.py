@@ -47,9 +47,8 @@ class DShell(commands.Cog):
             self.bot.dshell_config['shell_whitelisted_users'] = [bot.owner_id]
         elif bot.owner_ids:
             self.bot.dshell_config['shell_whitelisted_users'] = bot.owner_ids
-        else:
-            self.bot.dshell_config['shell_whitelisted_users'] = [run(self.bot.application_info()).owner.id]
         self._owners: list = self.bot.dshell_config['shell_whitelisted_users']
+        self._on_ready_flag: bool = False
         self._og_working_directory: str = getcwd()
         self._cwd: str = self._og_working_directory # this changes with cd commands, of course
         self._home_directory: str = str(Path.home())
@@ -342,6 +341,13 @@ class DShell(commands.Cog):
             if await self._do_cd_command(msg):
                 ctx = await self.bot.get_context(msg)
                 return await jskshell.jsk_shell(ctx, argument = msg, cwd = self._cwd)
+
+    @commands.Cog.listener(name = 'on_ready')
+    async def initialize_bot_owners(self):
+        if not self._on_ready_flag and not self._owners:
+            self.dshell_config['shell_whitelisted_users'] = [(await self.bot.application_info()).owner.id]
+            self._owners = self.dshell_config['shell_whitelisted_users']
+            self._on_ready_flag = True
 
 def setup(bot):
     bot.add_cog(DShell(bot))
