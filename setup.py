@@ -15,6 +15,7 @@ setup(
     version = version,
     description = 'DShell is a package that combines with discord.py and Jishaku to turn a Discord channel into a shell on which bash commands can be run.',
     long_description = long_description,
+    long_description_content_type = 'text/markdown',
     author = 'ImNimboss',
     author_email = 'nimbossthegreat@gmail.com',
     url = 'https://github.com/ImNimboss/dshell',
