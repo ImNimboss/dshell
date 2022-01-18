@@ -6,7 +6,6 @@ labels: Bug
 
 ## Description
 
-e
 <!--Describe the bug here-->
 
 ## Reproduction steps
