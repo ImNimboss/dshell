@@ -9,6 +9,7 @@ with open('dshell/__init__.py') as file:
 for line in lines:
     if line.startswith('__version__: str = '):
         version = line[20:-1]
+        print(version)
 
 setup(
     name = 'dshell',
