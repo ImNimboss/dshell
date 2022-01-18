@@ -25,24 +25,24 @@ It gives you a short guide to all the DShell commands and some extra info.
 
 > This library is also compatible with discord.py forks that use the `discord` import. It uses standard message commands as slash commands were never implemented in discord.py.
 
-> dshell version `v{version number goes here, in this case 0.0.1}`, the Shell cog was loaded {a timestamp of when it was loaded, in this case <t:1642349117:R> (<t:1642349117:F>).}
+> dshell version `v{version number goes here, in this case 0.0.1}`, the Shell cog was loaded {a timestamp of when it was loaded.}
 
 > Subcommands:
 
-> `--cdcmdoutput/cdout enable/true/yes/y/disable/false/no/n` - Changes the `show_cd_command_output` config property. Enable or disable the output of the `cd` or change directory command in the shell.
+> `--dshell cdcmdoutput/cdout enable/true/yes/y/disable/false/no/n` - Changes the `show_cd_command_output` config property. Enable or disable the output of the `cd` or change directory command in the shell.
 
-> `--clearcommandconfirmation/ccc enable/true/yes/y/disable/false/no/n` - Changes the `give_clear_command_confirmation_warning` config property. Enable or disable the confirmation message of the `clear` command in the shell.
+> `--dshell clearcommandconfirmation/ccc enable/true/yes/y/disable/false/no/n` - Changes the `give_clear_command_confirmation_warning` config property. Enable or disable the confirmation message of the `clear` command in the shell.
 
-> `--dmshell/dmsh enable/true/yes/y/disable/false/no/n` - Changes the `shell_in_dms` config property. Enable or disable the usage of the shell in DMs.
+> `--dshell dmshell/dmsh enable/true/yes/y/disable/false/no/n` - Changes the `shell_in_dms` config property. Enable or disable the usage of the shell in DMs.
 
-> `--addshellchannel/addchannel/ach [text channel]` - Changes the `shell_channels` config property. Adds a channel to the list of channels that the shell can be used in.
+> `--dshell addshellchannel/addchannel/ach [text channel]` - Changes the `shell_channels` config property. Adds a channel to the list of channels that the shell can be used in.
 
-> `--removeshellchannel/removechannel/rch [text channel]` - Changes the `shell_channels` config property. Removes a channel from the list of channels that the shell can be used in.
+> `--dshell removeshellchannel/removechannel/rch [text channel]` - Changes the `shell_channels` config property. Removes a channel from the list of channels that the shell can be used in.
 
-> `--shellchannels/sc` - Shows a list of all the channels that the shell can be used in.
+> `--dshell shellchannels/sc` - Shows a list of all the channels that the shell can be used in.
 
-> `--showshellconfig/ssc` - Shows your DShell cog's configuration dict.
+> `--dshell showshellconfig/ssc` - Shows your DShell cog's configuration dict.
 
-> `--shellwhitelist/shw [user]` - Changes the `shell_whitelisted_users` config property. Whitelist someone to the shell, allowing them to use the shell. This command should be used with caution as giving someone shell access is the equivalent of giving them full access to whatever device the bot is running on. Bot owners are by default whitelisted and this cannot be changed.
+> `--dshell shellwhitelist/shw [user]` - Changes the `shell_whitelisted_users` config property. Whitelist someone to the shell, allowing them to use the shell. This command should be used with caution as giving someone shell access is the equivalent of giving them full access to whatever device the bot is running on. Bot owners are by default whitelisted and this cannot be changed.
 
-> `--shellunwhitelist/shuw [user]` - Changes the `shell_whitelisted_users` config property. Unwhitelist someone to the shell. The user to unwhitelist cannot be a bot owner.
+> `--dshell shellunwhitelist/shuw [user]` - Changes the `shell_whitelisted_users` config property. Unwhitelist someone to the shell. The user to unwhitelist cannot be a bot owner.

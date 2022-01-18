@@ -69,29 +69,29 @@ class DShell(commands.Cog):
         await ctx.send(
             embed = discord.Embed(
                 description = f"""
-                    Discord shell or dshell, a Python discord.py library that allows for shell access in Discord.
-                    This library is also compatible with discord.py forks that use the `discord` import. It uses standard message commands as slash commands were never implemented in discord.py.
-                    dshell version `v{version}`, the Shell cog was loaded <t:{self._load_time}:R> (<t:{self._load_time}:F>).
-                    
-                    Subcommands:
-                    `{ctx.prefix}{ctx.invoked_with} cdcmdoutput/cdout enable/true/yes/y/disable/false/no/n` - Changes the `show_cd_command_output` config property. Enable or disable the output of the `cd` or change directory command in the shell.
+Discord shell or dshell, a Python discord.py library that allows for shell access in Discord.
+This library is also compatible with discord.py forks that use the `discord` import. It uses standard message commands as slash commands were never implemented in discord.py.
+dshell version `v{version}`, the Shell cog was loaded <t:{self._load_time}:R> (<t:{self._load_time}:F>).
 
-                    `{ctx.prefix}{ctx.invoked_with} clearcommandconfirmation/ccc enable/true/yes/y/disable/false/no/n` - Changes the `give_clear_command_confirmation_warning` config property. Enable or disable the confirmation message of the `clear` command in the shell.
+Subcommands:
+`{ctx.prefix}{ctx.invoked_with} cdcmdoutput/cdout enable/true/yes/y/disable/false/no/n` - Changes the `show_cd_command_output` config property. Enable or disable the output of the `cd` or change directory command in the shell.
 
-                    `{ctx.prefix}{ctx.invoked_with} dmshell/dmsh enable/true/yes/y/disable/false/no/n` - Changes the `shell_in_dms` config property. Enable or disable the usage of the shell in DMs.
+`{ctx.prefix}{ctx.invoked_with} clearcommandconfirmation/ccc enable/true/yes/y/disable/false/no/n` - Changes the `give_clear_command_confirmation_warning` config property. Enable or disable the confirmation message of the `clear` command in the shell.
 
-                    `{ctx.prefix}{ctx.invoked_with} addshellchannel/addchannel/ach [text channel]` - Changes the `shell_channels` config property. Adds a channel to the list of channels that the shell can be used in.
+`{ctx.prefix}{ctx.invoked_with} dmshell/dmsh enable/true/yes/y/disable/false/no/n` - Changes the `shell_in_dms` config property. Enable or disable the usage of the shell in DMs.
 
-                    `{ctx.prefix}{ctx.invoked_with} removeshellchannel/removechannel/rch [text channel]` - Changes the `shell_channels` config property. Removes a channel from the list of channels that the shell can be used in.
+`{ctx.prefix}{ctx.invoked_with} addshellchannel/addchannel/ach [text channel]` - Changes the `shell_channels` config property. Adds a channel to the list of channels that the shell can be used in.
 
-                    `{ctx.prefix}{ctx.invoked_with} shellchannels/sc` - Shows a list of all the channels that the shell can be used in.
+`{ctx.prefix}{ctx.invoked_with} removeshellchannel/removechannel/rch [text channel]` - Changes the `shell_channels` config property. Removes a channel from the list of channels that the shell can be used in.
 
-                    `{ctx.prefix}{ctx.invoked_with} showshellconfig/ssc` - Shows your DShell cog's configuration dict.
+`{ctx.prefix}{ctx.invoked_with} shellchannels/sc` - Shows a list of all the channels that the shell can be used in.
 
-                    `{ctx.prefix}{ctx.invoked_with} shellwhitelist/shw [user]` - Changes the `shell_whitelisted_users` config property. Whitelist someone to the shell, allowing them to use the shell. This command should be used with caution as giving someone shell access is the equivalent of giving them full access to whatever device the bot is running on. Bot owners are by default whitelisted and this cannot be changed.
+`{ctx.prefix}{ctx.invoked_with} showshellconfig/ssc` - Shows your DShell cog's configuration dict.
 
-                    `{ctx.prefix}{ctx.invoked_with} shellunwhitelist/shuw [user]` - Changes the `shell_whitelisted_users` config property. Unwhitelist someone to the shell. The user to unwhitelist cannot be a bot owner.
-                    """,
+`{ctx.prefix}{ctx.invoked_with} shellwhitelist/shw [user]` - Changes the `shell_whitelisted_users` config property. Whitelist someone to the shell, allowing them to use the shell. This command should be used with caution as giving someone shell access is the equivalent of giving them full access to whatever device the bot is running on. Bot owners are by default whitelisted and this cannot be changed.
+
+`{ctx.prefix}{ctx.invoked_with} shellunwhitelist/shuw [user]` - Changes the `shell_whitelisted_users` config property. Unwhitelist someone to the shell. The user to unwhitelist cannot be a bot owner.
+                    """.strip(),
                 color = ctx.author.color
             )
         )
