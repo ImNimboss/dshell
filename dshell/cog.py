@@ -291,6 +291,8 @@ Subcommands:
             directory = msg.content[3:]
             if directory.startswith('"') and directory.endswith('"'):
                 directory = directory[1:][:-1]
+            if directory.startswith('/'): # implying that a relative path has been entered
+                directory = self._cwd + directory
             if not isdir(directory):
                 await msg.channel.send(
                     f'```sh\n$ {msg.content}\n\n' \
