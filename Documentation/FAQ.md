@@ -2,7 +2,7 @@
 
 > Why and when would I use this?
 
-Check the "When would I use this?" section under [the README](https://github.com/ImNimboss/dshell/blob/main/README.md).
+Check the "When would I use this?" section under [the README](https://github.com/ImNimboss/dshell/blob/main/.github/README.md).
 
 > Why is it called "discordshell" on PyPI instead of dshell?
 
