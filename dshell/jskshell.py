@@ -75,13 +75,11 @@ def codeblock_converter(argument):
         if char == '\n':  # \n delimits language and code
             in_language = False
             in_code = True
-        # we're not seeing a newline yet but we also passed the opening ```
         elif ''.join(last) == '`' * 3 and char != '`':
             in_language = True
             language.append(char)
         elif in_language:  # we're in the language after the first non-backtick character
-            if char != '\n':
-                language.append(char)
+            language.append(char)
 
         last.append(char)
 
@@ -158,14 +156,14 @@ class WrappedPaginator(commands.Paginator):
         original_length = len(line)
 
         while len(line) > true_max_size:
-            search_string = line[0:true_max_size - 1]
+            search_string = line[:true_max_size - 1]
             wrapped = False
 
             for delimiter in self.wrap_on:
                 position = search_string.rfind(delimiter)
 
                 if position > 0:
-                    super().add_line(line[0:position], empty=empty)
+                    super().add_line(line[:position], empty=empty)
                     wrapped = True
 
                     if self.include_wrapped:
@@ -176,16 +174,15 @@ class WrappedPaginator(commands.Paginator):
                     break
 
             if not wrapped:
-                if self.force_wrap:
-                    super().add_line(line[0:true_max_size - 1])
-                    line = line[true_max_size - 1:]
-                else:
+                if not self.force_wrap:
                     raise ValueError(
                         f"Line of length {original_length} had sequence of {len(line)} characters"
                         f" (max is {true_max_size}) that WrappedPaginator could not wrap with"
                         f" delimiters: {self.wrap_on}"
                     )
 
+                super().add_line(line[:true_max_size - 1])
+                line = line[true_max_size - 1:]
         super().add_line(line, empty=empty)
 
 class PaginatorInterface:  # pylint: disable=too-many-instance-attributes
@@ -302,9 +299,7 @@ class PaginatorInterface:  # pylint: disable=too-many-instance-attributes
 
     @property
     def closed(self):
-        if not self.task:
-            return False
-        return self.task.done()
+        return False if not self.task else self.task.done()
 
     async def send_lock_delayed(self):
         gathered = await self.send_lock.wait()

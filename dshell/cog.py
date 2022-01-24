@@ -176,7 +176,7 @@ Subcommands:
         """
         Changes the `shell_channels` config property. Removes a channel from the list of channels that the shell can be used in.
         """
-        if not channel.id in self.bot.dshell_config['shell_channels']:
+        if channel.id not in self.bot.dshell_config['shell_channels']:
             return await ctx.send('This channel is not a shell channel.')
         self.bot.dshell_config['shell_channels'].remove(channel.id)
         await ctx.message.add_reaction('👍')
@@ -190,9 +190,7 @@ Subcommands:
         if len(self.bot.dshell_config['shell_channels']) == 0:
             return await ctx.send('There are no shell channels, add one using the `dshell/dsh addshellchannel` subcommand.')
         channels = [f'<#{id_}>' for id_ in self.bot.dshell_config['shell_channels']]
-        chunks = []
-        for i in range(0, len(channels), 25):
-            chunks.append(channels[i : i + 25])
+        chunks = [channels[i : i + 25] for i in range(0, len(channels), 25)]
         for chunk in chunks:
             await ctx.send(', '.join(chunk))
 
@@ -260,7 +258,7 @@ Subcommands:
         """
         Changes the `shell_whitelisted_users` config property. Unwhitelist someone to the shell. The user to unwhitelist cannot be a bot owner.
         """
-        if not user.id in self.bot.dshell_config['shell_whitelisted_users']:
+        if user.id not in self.bot.dshell_config['shell_whitelisted_users']:
             return await ctx.send('This person is not whitelisted.')
         if user.id in self._owners:
             return await ctx.send('The owner of this bot cannot be unwhitelisted from the shell.')
@@ -344,25 +342,24 @@ Subcommands:
     @commands.Cog.listener(name = 'on_message')
     async def main_shell(self, msg: discord.Message) -> Optional[discord.Message]:
         if (
-            msg.channel.id in self.bot.dshell_config['shell_channels'] or (self.bot.dshell_config['shell_in_dms'] and not msg.guild)
-        ) and (
-            not msg.author.id == self.bot.user.id
-        ) and (
-            msg.content
-        ) and (
-            msg.author.id in self.bot.dshell_config['shell_whitelisted_users']
-        ) and (
-            not msg.content.startswith('#')
+            msg.channel.id not in self.bot.dshell_config['shell_channels']
+            and (not self.bot.dshell_config['shell_in_dms'] or msg.guild)
+            or msg.author.id == self.bot.user.id
+            or not msg.content
+            or msg.author.id
+            not in self.bot.dshell_config['shell_whitelisted_users']
+            or msg.content.startswith('#')
         ):
-            if msg.content.startswith('`') and msg.content.endswith('`'):
-                msg.content = msg.content[1:][:-1]
-            if msg.content == '[DSHELL EXEC FILE]' and msg.attachments:
-                msg.content = (await msg.attachments[0].read()).decode('utf-8')
-            if msg.content == 'clear':
-                return await self._clear_command(msg)
-            if await self._do_cd_command(msg):
-                ctx = await self.bot.get_context(msg)
-                return await jskshell.jsk_shell(ctx, argument = msg, cwd = self._cwd)
+            return
+        if msg.content.startswith('`') and msg.content.endswith('`'):
+            msg.content = msg.content[1:][:-1]
+        if msg.content == '[DSHELL EXEC FILE]' and msg.attachments:
+            msg.content = (await msg.attachments[0].read()).decode('utf-8')
+        if msg.content == 'clear':
+            return await self._clear_command(msg)
+        if await self._do_cd_command(msg):
+            ctx = await self.bot.get_context(msg)
+            return await jskshell.jsk_shell(ctx, argument = msg, cwd = self._cwd)
 
     @commands.Cog.listener(name = 'on_ready')
     async def initialize_bot_owners(self):
