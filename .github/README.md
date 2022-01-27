@@ -28,7 +28,7 @@ Discord shell or dshell for short is a Python package that combines with [discor
 
 ## When would I use this?
 
-* When you want to use shell commands on your virtual machine without logging into it
+* When you want to use shell commands on your virtual private server (VPS) without logging into it
 * When you want a collaborative terminal with other developers of your team
 * When you're simply too lazy to open your shell and would rather do it in an open Discord app
 * When you want to run shell commands from your Discord bot's directory easily
