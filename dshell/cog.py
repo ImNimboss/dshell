@@ -216,7 +216,12 @@ Subcommands:
             await message.add_reaction('✅')
             await message.add_reaction('❌')
             def check(reaction, user):
-                return str(reaction.emoji) in ['✅', '❌'] and user == ctx.author and reaction.message.id == message.id and reaction.message.channel.id == ctx.channel.id
+                return (
+                    str(reaction.emoji) in {'✅', '❌'}
+                    and user == ctx.author
+                    and reaction.message.id == message.id
+                    and reaction.message.channel.id == ctx.channel.id
+                )
             try:
                 reaction, user = await self.bot.wait_for('reaction_add', check = check, timeout = 10)
                 if str(reaction.emoji) == '✅':
@@ -277,7 +282,7 @@ Subcommands:
             await msg.add_reaction('✅')
             self._cwd = self._home_directory
             return False
-        
+
         if msg.content == 'cd ..':
             directory = dirname(self._cwd)
             if self.bot.dshell_config['show_cd_command_output'] is True:
@@ -290,13 +295,13 @@ Subcommands:
             await msg.add_reaction('✅')
             self._cwd = directory
             return False
-        
+
         if msg.content.startswith('cd '):
             directory = msg.content[3:]
             if directory.startswith('"') and directory.endswith('"'):
                 directory = directory[1:][:-1]
             if not directory.startswith('/'): # implying that a relative path has been entered
-                directory = self._cwd + '/' + directory
+                directory = f'{self._cwd}/{directory}'
             if not isdir(directory):
                 await msg.channel.send(
                     f'```sh\n$ {msg.content}\n\n' \
@@ -314,7 +319,7 @@ Subcommands:
             await msg.add_reaction('✅')
             self._cwd = directory
             return False
-        
+
         return True
 
     async def _clear_command(self, msg: discord.Message) -> None:
