@@ -415,7 +415,7 @@ async def jsk_shell(ctx, *, argument: codeblock_converter, cwd: str): # ALL the 
     async with ReplResponseReactor(ctx.message):
         with submit(ctx):
             with ShellReader(argument.content, cwd) as reader:
-                prefix = "```" + reader.highlight
+                prefix = f'```{reader.highlight}'
 
                 paginator = WrappedPaginator(prefix=prefix, max_size=1975)
                 paginator.add_line(f"{reader.ps1} {argument.content}\n")
