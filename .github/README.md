@@ -39,7 +39,7 @@ Discord shell or dshell for short is a Python package that combines with [discor
 - [x] - Customizable
 - [x] - Easy to use
 - [x] - Asynchronous
-- [x] - Doesn't favor a particular fork, written in raw archived discord.py (as a result it is compatible with all forks that use the `discord` import)
+- [x] - Compatible with discord.py v2.0
 - [x] - Lightweight
 - [x] - Regularly maintained
 

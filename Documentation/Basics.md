@@ -4,9 +4,13 @@
 
 You need to have an instance of [discord.ext.commands.Bot](https://discordpy.readthedocs.io/)
 
-Before your bot.run() statement, put this line:
+Before your bot.run() statement, put this line in an async function:
 ```python
-bot.load_extension('dshell')
+await bot.load_extension('dshell')
+```
+Or import asyncio and use:
+```python
+asyncio.run(load_extension('dshell'))
 ```
 This will load the main DShell cog into your bot.
 

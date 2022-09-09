@@ -4,6 +4,7 @@
 
 ```python
 from discord.ext import commands
+from asyncio import run
 
 bot = commands.Bot(
     command_prefix = 'e!'
@@ -17,8 +18,8 @@ async def hi(ctx):
 async def ping(ctx):
     await ctx.send(f'Pong! {round(bot.latency * 1000)}ms.')
 
-# this is where dshell stuff starts
-bot.load_extension('dshell')
+# this is where dshell stuff starts 
+run(bot.load_extension('dshell'))
 bot.dshell_config['shell_channels'] = [930143692545744896, 808404030380441600] # put your own channel IDs here. all the channels that you've put will become shell channels
 bot.dshell_config['shell_in_dms'] = True
 bot.dshell_config['give_clear_command_confirmation_warning'] = False
@@ -31,12 +32,13 @@ bot.run(TOKEN_GOES_HERE)
 
 ```python
 from discord.ext import commands
+from asyncio import run
 
 bot = commands.Bot(
     command_prefix = 's!'
 )
 
-bot.load_extension('dshell')
+run(bot.load_extension('dshell'))
 bot.dshell_config['shell_channels'] = [930143692545744896, 808404030380441600] # again, use your own channel IDs
 bot.dshell_config['shell_in_dms'] = True
 
@@ -78,10 +80,11 @@ async def change_statuses():
 async def before_change_statuses():
     await bot.wait_until_ready()
 
-for cog in listdir('cogs'):
-    bot.load_extension(f'cogs.{cog[:-3]}') #:-3 to remove the .py extension
-
-bot.load_extension('dshell')
+async def load_extensions:
+    for cog in listdir('cogs'):
+        await bot.load_extension(f'cogs.{cog[:-3]}') #:-3 to remove the .py extension
+    await bot.load_extension('dshell')
+asyncio.run(load_extensions())
 bot.dshell_config['shell_channels'] = [930143692545744896, 808404030380441600]
 bot.run(TOKEN)
 ```

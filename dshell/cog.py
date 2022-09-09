@@ -27,6 +27,7 @@ from pathlib import Path
 from asyncio import TimeoutError, run
 import dshell.jskshell as jskshell
 from datetime import datetime as dt
+from datetime import timezone as dt_timezone
 from typing import Optional
 from io import StringIO
 from json import dumps
@@ -56,7 +57,7 @@ class DShell(commands.Cog):
         self._og_working_directory: str = getcwd()
         self._cwd: str = self._og_working_directory # this changes with cd commands, of course
         self._home_directory: str = str(Path.home())
-        self._load_time: int = int(dt.utcnow().timestamp())
+        self._load_time: int = int(dt.now(dt_timezone.utc).timestamp())
         self._bool_flags_true: list = ['enable', 'true', 'yes', 'y']
         self._bool_flags_false: list = ['disable', 'false', 'no', 'n']
 
@@ -70,6 +71,8 @@ class DShell(commands.Cog):
 
         if ctx.prefix == self.bot.user.mention:
             prefix = f'@{self.bot.name} '
+        elif ctx.prefix is None:
+            prefix == '[prefix]'
         else:
             prefix = ctx.prefix
         await ctx.send(
@@ -374,5 +377,5 @@ Subcommands:
             self._owners = [owner]
             self._on_ready_flag = True
 
-def setup(bot):
-    bot.add_cog(DShell(bot))
+async def setup(bot):
+    await bot.add_cog(DShell(bot))
