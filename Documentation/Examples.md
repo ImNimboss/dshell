@@ -4,10 +4,12 @@
 
 ```python
 from discord.ext import commands
+import discord
 from asyncio import run
 
 bot = commands.Bot(
-    command_prefix = 'e!'
+    command_prefix = 'e!',
+    intents = discord.Intents.all()
 )
 
 @bot.command()
@@ -32,10 +34,12 @@ bot.run(TOKEN_GOES_HERE)
 
 ```python
 from discord.ext import commands
+from discord import Intents
 from asyncio import run
 
 bot = commands.Bot(
-    command_prefix = 's!'
+    command_prefix = 's!',
+    intents = Intents.all()
 )
 
 run(bot.load_extension('dshell'))
