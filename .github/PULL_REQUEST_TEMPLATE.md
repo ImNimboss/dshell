@@ -8,7 +8,7 @@
 
 - [] - All code changes have been tested, if any
 - [] - The documentation has been updated accordingly for any code changes
-- [] - This PR fixes an already existing issue
+- [] - This PR fixes an already existing issue <!--If so, please mention the issue number in the description-->
 - [] - This PR adds a new feature (new functions, methods, classes, parameters, etc.)
 - [] - This PR fixes a bug
 - [] - This PR changes the main DShell cog

@@ -22,7 +22,7 @@ labels: Bug
 
 ## DShell version
 
-<!--What version of dshell do you have? You can get this by typing `pip show dshell`.-->
+<!--What version of dshell do you have? You can get this by typing `pip show discordshell`.-->
 
 ## discord.py version
 

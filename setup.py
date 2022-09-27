@@ -9,6 +9,7 @@ with open('dshell/__init__.py') as file:
 for line in lines:
     if line.startswith('__version__: str = '):
         version = line[20:-2]
+        break
 
 setup(
     name = 'discordshell',
@@ -17,7 +18,7 @@ setup(
     long_description = long_description,
     long_description_content_type = 'text/markdown',
     author = 'ImNimboss',
-    author_email = 'nimbossthegreat@gmail.com',
+    author_email = 'nim@nimboss.me',
     url = 'https://github.com/ImNimboss/dshell',
     license = 'MIT',
     packages = ['dshell'],
@@ -54,6 +55,9 @@ setup(
     project_urls = {
         'Documentation': 'https://github.com/ImNimboss/dshell/tree/main/Documentation',
         'Issue Tracker': 'https://github.com/ImNimboss/dshell/issues',
-        'Source': 'https://github.com/ImNimboss/dshell'
+        'Source': 'https://github.com/ImNimboss/dshell',
+        'Funding': 'https://patreon.com/nimboss',
+        'Creator': 'https://nimboss.me',
+        'Discord': 'https://discord.gg/FcxqdJ7AQq'
     }
 )
