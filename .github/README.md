@@ -78,3 +78,9 @@ Check [Documentation/Basics.md](https://github.com/ImNimboss/dshell/blob/main/Do
 ## Examples
 
 Check [Documentation/Examples.md](https://github.com/ImNimboss/dshell/blob/main/Documentation/Examples.md)
+
+## Changelog
+
+* `v0.0.1` - Initial release, but quite rough/in testing phase.
+* `v0.0.2` - Smooth out the library.
+* `v0.0.3` - Make library compatible with discord.py v2.0 and above.
